@@ -11,21 +11,22 @@
   firebase.initializeApp(config);
 
   //Get Elements 
-  var txtEmail = document.getElementbyID('txtLogin');
-  var txtPassword = document.getElementbyID('txtPassword'); 
-  var btnLogin = document.getElementbyID('btnLogin'); 
-  var btnSignUp = document.getElementbyID('btnSignup'); 
-  var btnLogout = document.getElementbyID('btnLogout');
+  var txtEmail = document.getElementById('txtEmail');
+  var txtPassword = document.getElementById('txtPassword'); 
+  var btnLogin = document.getElementById('btnLogin'); 
+  var btnSignUp = document.getElementById('btnSignup'); 
+  var btnLogout = document.getElementById('btnLogout');
 
   //Get Elements 
-  var txtEmail = document.getElementbyID('txtLogin');
-  var txtPassword = document.getElementbyID('txtPassword'); 
-  var btnLogin = document.getElementbyID('btnLogin'); 
-  var btnSignUp = document.getElementbyID('btnSignup'); 
-  var btnLogout = document.getElementbyID('btnLogout');
+  var txtEmail = document.getElementById('txtLogin');
+  var txtPassword = document.getElementById('txtPassword'); 
+  var btnLogin = document.getElementById('btnLogin'); 
+  var btnSignUp = document.getElementById('btnSignup'); 
+  var btnLogout = document.getElementById('btnLogout');
 
   //add login event on click listener
   btnLogin.addEventListener('click', function(e){
+    console.log("click");
   	//Get email and pass 
   	var email = txtEmail.value(); 
   	var pass = txtPassword.value(); 
@@ -33,13 +34,15 @@
   	// sign in 
   	var promise = auth.signInWithEmailAndPassword(email, pass); 
   	promise.catch(e => console.log(e.message)); 
+
   }); 
 
   //add signUp Event
   btnSignup.addEventListener('click', function(e){
-  	//Get email and pass 
-  	var email = txtEmail.value(); 
-  	var pass = txtPassword.value(); 
+  	//Get email and pass
+    //TO DO: check for real emails 
+  	var email = txtEmail.value; 
+  	var pass = txtPassword.value; 
   	var auth = firebase.auth(); 
   	// sign in 
   	var promise = auth.createUserWithEmailAndPassword(email, pass); 
@@ -47,7 +50,7 @@
   }); 
 
   //add a realtime Listener
-  firebase.auth.onAuthStateChanged(firebaseUser => { 
+  firebase.auth.onAuthStateChange(firebaseUser => { 
   	if(firebaseUser) {
   		console.log(firebaseUser); 
   	} else{
