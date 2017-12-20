@@ -33,7 +33,7 @@
   }); 
 
   //add signUp Event
-  btnSignUp.addEventListener('click', function(e){
+  btnSignUp.addEventListener('click', e =>{
   	//Get email and pass
     //TO DO: check for real emails 
     event.preventDefault(); 
@@ -42,7 +42,7 @@
   	var pass = txtPassword.value; 
   	var auth = firebase.auth(); 
   	// sign in 
-  	var promise = firebase.auth().createUserWithEmailAndPassword(email, pass); 
+  	var promise = auth.createUserWithEmailAndPassword(email, pass); 
   	promise.catch(e => console.log(e.message)); 
   }); 
 
