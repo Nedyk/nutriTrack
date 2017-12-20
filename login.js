@@ -26,7 +26,8 @@
 
   //add login event on click listener
   btnLogin.addEventListener('click', function(e){
-    console.log("click");
+    
+    alert("click");
   	//Get email and pass 
   	var email = txtEmail.value(); 
   	var pass = txtPassword.value(); 
@@ -50,7 +51,7 @@
   }); 
 
   //add a realtime Listener
-  firebase.auth.onAuthStateChange(firebaseUser => { 
+  firebase.auth().onAuthStateChanged(firebaseUser => { 
   	if(firebaseUser) {
   		console.log(firebaseUser); 
   	} else{
